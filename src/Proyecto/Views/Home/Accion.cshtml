@@ -1,0 +1,109 @@
+﻿@{
+    ViewBag.Title = "Acción";
+}
+@using Proyecto.Models;
+
+<!doctype html>
+<html lang="en">
+<head>
+
+</head>
+<body>
+    <div class="rows-movies">
+        <div class="row">
+            @foreach (Pelicula peli in ViewBag.Accion)
+            {
+                <a class="movies" href="@Url.Action("DetallePelicula", "Home",new { Id=peli.Id})">
+                    <img src="@peli.Imagen" class="movie" alt="...">
+                </a>
+            }
+        </div>
+    </div>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primar" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Launch demo modal
+    </button>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    
+
+    <style>
+        body {
+            padding: 0px;
+            width: 100%;
+        }
+
+
+        .movie {
+            position: relative;
+            padding: 0 0 0;
+            width: 19.8rem;
+            height: 8rem;
+            border-radius: 17px;
+            float: left;
+            border: 0.000005rem solid white;
+        }
+
+            .movie:hover {
+            }
+
+        .movies {
+            display: inline-flex;
+            height: 8rem;
+            padding: 0 0 0;
+            align-content: center;
+            width: 19.8rem;
+            height: 8rem;
+            border-radius: 17px;
+            margin-left: 10px;
+            margin-bottom: 10px;
+        }
+
+        .rows-movies {
+            margin-left: -90px;
+            margin-right: -90px;
+        }
+    </style>
+
+</body>
+</html>
+

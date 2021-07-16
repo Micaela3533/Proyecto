@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+//ordenar por pelicula
+<div class="row">
+    <h7 class="title">Recomendado para ti </h7>
+    <div class="row_posters" onscroll="getScrollVal()">
+        <div class="wrap">
+            <img src="https://www.lacasadeel.net/wp-content/uploads/2019/12/Capitan-Am%C3%A9rica-El-primer-vengador.jpg" alt="movieImage" class="row_poster" />
+        </div>
+        <div class="space"></div>
+        <div class="left_arrow scroll_button" onclick="scrollL()">
+            <i class="arrow left"></i>
+        </div>
+        <div class="right_arrow scroll_button" onclick="scrollR()">
+            <i class="arrow right"></i>
+        </div>
+    </div>
+</div>

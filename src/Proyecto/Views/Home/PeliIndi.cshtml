@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "Nombre Pelicula";
+}
+<html>
+<head>
+    <script src="~/Scripts/JavaScript.js"></script>
+</head>
+<body>
+
+
+    <<div id="instructions">
+        <video id="my_video_1" class="video-js vjs-default-skin"  style="width:130%"
+               controls preload="none" poster="~/Content/img/endgame.png"
+               data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'>
+            <source src="https://r5---sn-x1x7dn7s.c.drive.google.com/videoplayback?expire=1625603858&ei=0obkYMjSKeLFwtQP4qKL0A0&ip=186.22.17.6&cp=QVRHV0dfUlhTSVhPOjJMM3d4NGtTcGVxNnN3UTNUMWNENE1SQ2pVOUVwS2g3OUtWM3otNlFlSXk&id=14638d89b27538ca&itag=18&source=webdrive&requiressl=yes&mh=lq&mm=32&mn=sn-x1x7dn7s&ms=su&mv=m&mvi=5&pl=24&ttl=transient&susc=dr&driveid=135mAdFLi9Q_4zzY0FjhgwI4s9DEYI9Wn&app=explorer&mime=video/mp4&vprv=1&prv=1&dur=8961.300&lmt=1625347772664962&mt=1625589142&sparams=expire,ei,ip,cp,id,itag,source,requiressl,ttl,susc,driveid,app,mime,vprv,prv,dur,lmt&sig=AOq0QJ8wRQIhAKSZMgvKCj9P30WB3uTIgwRUnKzwYpXdVr1E5Fkgb9lsAiADcmsl645wBPyJKV5r3DyC9yeCXEF_CGNxJvNOIrPrkw==&lsparams=mh,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRgIhAKvcpOOR9My1Sf8xRQrPjuJAfcKj8aH89rM4DYyJXX5zAiEA3Mw8V3v16R3Gyu0kA1Rk5o1y4vptOJKcWChfnKAsbvM=&cpn=ks267FLXGZC6z3H1&c=WEB_EMBEDDED_PLAYER&cver=1.20210629.1.0" type='video/mp4' />
+            <source src="https://r5---sn-x1x7dn7s.c.drive.google.com/videoplayback?expire=1625603858&ei=0obkYMjSKeLFwtQP4qKL0A0&ip=186.22.17.6&cp=QVRHV0dfUlhTSVhPOjJMM3d4NGtTcGVxNnN3UTNUMWNENE1SQ2pVOUVwS2g3OUtWM3otNlFlSXk&id=14638d89b27538ca&itag=18&source=webdrive&requiressl=yes&mh=lq&mm=32&mn=sn-x1x7dn7s&ms=su&mv=m&mvi=5&pl=24&ttl=transient&susc=dr&driveid=135mAdFLi9Q_4zzY0FjhgwI4s9DEYI9Wn&app=explorer&mime=video/mp4&vprv=1&prv=1&dur=8961.300&lmt=1625347772664962&mt=1625589142&sparams=expire,ei,ip,cp,id,itag,source,requiressl,ttl,susc,driveid,app,mime,vprv,prv,dur,lmt&sig=AOq0QJ8wRQIhAKSZMgvKCj9P30WB3uTIgwRUnKzwYpXdVr1E5Fkgb9lsAiADcmsl645wBPyJKV5r3DyC9yeCXEF_CGNxJvNOIrPrkw==&lsparams=mh,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRgIhAKvcpOOR9My1Sf8xRQrPjuJAfcKj8aH89rM4DYyJXX5zAiEA3Mw8V3v16R3Gyu0kA1Rk5o1y4vptOJKcWChfnKAsbvM=&cpn=ks267FLXGZC6z3H1&c=WEB_EMBEDDED_PLAYER&cver=1.20210629.1.0" type='video/webm' />
+        </video>
+        
+    <!--<iframe src="https://drive.google.com/file/d/135mAdFLi9Q_4zzY0FjhgwI4s9DEYI9Wn/preview" width="640" height="480" allow="autoplay"></iframe>-->
+</body>
+</html>
+
+
+<style>
+    #instructions {
+        max-width: 840px;
+        text-align: left;
+    }
+
+        #instructions textarea {
+            width: 100%;
+            height: 100px;
+        }
+
+    /* Show the controls (hidden at the start by default) */
+    .video-js .vjs-control-bar {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+    }
+
+    /* Make the demo a little prettier */
+    body {
+        margin-top: 20px;
+        text-align: left;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+        max-width: 23456754321px;
+    }
+
+
+</style>
+
+<script>
+    $(function () {
+        var $refreshButton = $('#refresh');
+        var $results = $('#css_result');
+
+        function refresh() {
+            var css = $('style.cp-pen-styles').text();
+            $results.html(css);
+        }
+
+        refresh();
+        $refreshButton.click(refresh);
+
+        // Select all the contents when clicked
+        $results.click(function () {
+            $(this).select();
+        });
+    });
+
+</script>
+
+
+
+</body>
+</html>

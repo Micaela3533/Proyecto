@@ -1,0 +1,355 @@
+﻿@{
+    ViewBag.Title = "Crear Sala";
+}
+@using Proyecto.Models;
+<html>
+<head>
+    <link href="~/Content/Style.css" rel="stylesheet" />
+
+</head>
+<body>
+    
+        <div id="sala" class="row">
+            <div id="borrar" class="col-sm-12">
+                <div class="card" id="crearsal">
+                    <img class="card-img-top" src="@ViewBag.Imagen" alt="Card image cap">
+                    <div class="boton-container">
+                        <a href="#" style="display: inline-block;" onclick="crearSala()" class="salab"><ion-icon style="display: inline-block;vertical-align:-2px;" name="people"></ion-icon> Crear Sala</a>
+                        <a href="@Url.Action("PeliIndi","Home")" style="display: inline-block;" class="salab"><ion-icon style="display: inline-block;vertical-align:-2px;" name="play-circle"></ion-icon> Ver Ahora</a>
+                    </div>
+                    <div style ="position:relative" class="card-body">
+                        <h5 class="card-title">@ViewBag.titulo</h5>
+                        <p class="card-text">@ViewBag.Descripcion</p> <br>
+                        <h10>Duracion: @ViewBag.Duracion minutos</h10><br>
+                        <h10>Año: @ViewBag.año </h10><br>
+                        <h10>Generos: @ViewBag.genero </h10><br>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div id="sala1" class="row">
+
+            </div>
+        </div>
+    
+
+
+
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+
+    <script>
+        function checkcod() {
+            var boton = document.querySelector('#botondecodigo');
+            var codigobtn = document.querySelector('#cod');
+            var checkbox = document.querySelector('#switch-flat');
+            var titulo = document.querySelector('#lo');
+            if (checkbox.checked) {
+                boton.insertAdjacentHTML("beforeend", '<button  onclick="numerosAleatoriosNoRepetidos()"  style="display: inline - block; " id="boton" ><ion-icon style="display: inline - block; vertical - align: -2px; " name="play - circle"></ion-icon>Codigo</button>');
+                titulo.innerHTML = "Privada" ;
+                console.log('Checked');
+            } else {
+                boton.innerHTML = "";
+                codigobtn.innerHTML = "";
+                titulo.innerHTML = "Publica";
+                console.log('Not checked');
+            }
+
+        };
+        function check() {
+            if (checkbox1.checked) {
+                console.log('Checked');
+            } else {
+                console.log('Not checked2');
+            }
+
+        };
+
+
+
+
+
+        function numerosAleatoriosNoRepetidos() {
+            var codigobtn = document.querySelector('#cod');
+            codigobtn.innerHTML = "El codigo es:" + @ViewBag.random;
+            //codigobtn.insertAdjacentHTML("beforeend", "El codigo es:" + codigo)
+            console.log(arraycod)
+        }
+
+
+
+        function crearSala() {
+
+            var sala1 = document.querySelector('#sala1');
+            var sala2 = document.querySelector('#borrar');
+
+            sala1.innerHTML = "";
+            sala2.innerHTML = "";
+
+
+            sala1.insertAdjacentHTML("beforeend", `
+                    <div class="col-sm-6" >
+                        <div class="card" id="crearsal">
+                            <img class="card-img-top" src="@ViewBag.Imagen" alt="Card image cap">
+                                <div class="boton-container">
+                                    <a href="@Url.Action("PeliIndi","Home")" style="display: inline-block;" class="salab"><ion-icon style="display: inline-block;vertical-align:-2px;" name="play-circle"></ion-icon>Ver Ahorao</a>
+
+                                </div>
+
+                                <div class="card-body">
+                                    <h5 class="card-title"></h5>
+                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="card" id="crearsal">
+                                <h1 class="ti">Crear Sala</h1>
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        <div class="boton-container">
+                                            <h2 id="lo" class="lo1">Privada</h2>
+                                            <input type="checkbox" id="switch-flat" onclick="checkcod()" class="switch switch--flat">
+                                                <label for="switch-flat"></label>
+                                                <div class="boton-container" id="botondecodigo" style="position: relative">
+                                                </div>
+                                                <div id="cod">
+
+                                                </div>
+                                                <h2 class="lo">  Privada</h2>
+                                                <input type="checkbox" id="switch-flat1" onclick="check()" class="switch switch--flat">
+                                                    <label for="switch-flat1"></label>
+                                        </div>
+                                    </p>
+                                        </div>
+                            </div>
+                                </div>
+
+                                `);
+
+
+        }
+
+
+
+    </script>
+
+
+
+
+
+
+
+    <style>
+        .ti {
+            text-align: center;
+        }
+
+        #crearsal {
+            /*height: 510px;*/
+            background-color: #404040;
+            color: white;
+            font-family: 'Helvetica Neue LT Std';
+        }
+
+
+
+
+
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+            .switch input {
+                display: none;
+            }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+            .slider:before {
+                position: absolute;
+                content: "";
+                height: 26px;
+                width: 26px;
+                left: 4px;
+                bottom: 4px;
+                background-color: white;
+                -webkit-transition: .4s;
+                transition: .4s;
+            }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        .form-switch .form-check-input:checked {
+            background-color: black;
+            border-color: black;
+            box-shadow: none;
+        }
+
+        .form-switch .form-check-input {
+            width: 50px;
+            height: 25px;
+        }
+
+
+        .boton-container {
+            display: inline-block;
+            position: relative;
+        }
+
+            .boton-container .salab {
+                position: relative;
+                bottom: 45px;
+                left: 10px;
+                margin-right: 15px;
+                text-decoration: none;
+                border-radius: 7px;
+                color: white;
+                text-transform: uppercase;
+                padding: 5px;
+                width: 122px;
+                height: 32px;
+                font-family: 'Montserrat',sans-serif;
+                font-weight: 800;
+                background-color: rgba(0, 0, 0, 0.700);
+                border: 1px solid #fff;
+                font-size: 13px;
+            }
+
+            .boton-container #boton {
+                left: 10px;
+                margin-right: 15px;
+                text-decoration: none;
+                border-radius: 7px;
+                color: white;
+                text-transform: uppercase;
+                padding: 5px;
+                width: 122px;
+                height: 32px;
+                font-family: 'Montserrat',sans-serif;
+                font-weight: 800;
+                background-color: rgba(0, 0, 0, 0.700);
+                border: 1px solid #fff;
+                font-size: 13px;
+            }
+
+        .salab:link,
+        .salab:visited {
+            text-transform: uppercase;
+            background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #fff 50%);
+            background-size: 230%;
+            transition: all .3s
+        }
+
+        .salab:hover {
+            background-position: 100%;
+            color: #000;
+            transform: translateX(8px);
+            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2)
+        }
+
+
+
+
+
+        .switch__container {
+            margin: 30px auto;
+            width: 50px;
+        }
+
+        .switch {
+            visibility: hidden;
+            position: absolute;
+            margin-left: -9999px;
+        }
+
+            .switch + label {
+                display: block;
+                position: relative;
+                cursor: pointer;
+                outline: none;
+                user-select: none;
+            }
+
+
+
+        /* Estilo Flat */
+        .switch--flat + label {
+            padding: 2px;
+            width: 50px;
+            height: 30px;
+            background-color: black;
+            border-radius: 60px;
+            transition: background 0.4s;
+        }
+
+            .switch--flat + label:before,
+            .switch--flat + label:after {
+                display: block;
+                position: absolute;
+                content: "";
+            }
+
+            .switch--flat + label:before {
+                top: 2px;
+                left: 2px;
+                bottom: 2px;
+                right: 2px;
+                background-color: black;
+                border-radius: 60px;
+                transition: background 0.4s;
+            }
+
+            .switch--flat + label:after {
+                top: 4px;
+                left: 4px;
+                bottom: 4px;
+                width: 30px;
+                background-color: #dddddd;
+                border-radius: 52px;
+                transition: margin 0.4s, background 0.4s;
+            }
+
+        .switch--flat:checked + label {
+            background-color: black;
+        }
+
+            .switch--flat:checked + label:after {
+                margin-left: 12px;
+                background-color: white;
+            }
+    </style>
+
+
+
+
+
+</body>
+
+</html>
