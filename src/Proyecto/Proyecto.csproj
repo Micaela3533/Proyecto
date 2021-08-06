@@ -191,6 +191,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Data\CrearSalas.cs" />
     <Compile Include="Data\DBHelper.cs" />
+    <Compile Include="Data\EntrarSala.cs" />
     <Compile Include="Data\PeliculaData.cs" />
     <Compile Include="Data\SeriesData.cs" />
     <Compile Include="Global.asax.cs">

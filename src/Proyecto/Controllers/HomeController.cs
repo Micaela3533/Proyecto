@@ -17,9 +17,8 @@ namespace Proyecto.Controllers
 
         public ActionResult Index()
         {
-            //ViewBag.random = CrearSalas.Llenar();
+            //ViewBag.codigo = CrearSalas.Llenar();
             ViewBag.lista = PeliculaData.ObtenerCarousel();
-
             return View();
 
         }
@@ -45,8 +44,15 @@ namespace Proyecto.Controllers
 
             return View();
         }
-        public ActionResult CrearSala()
+        public ActionResult CrearSala(string Nombre)
         {
+            //ViewBag.Codigo = CrearSalas.Codigo();
+            return View();
+        }
+        public ActionResult EntrarSalas(int Codigo, string Nombre)
+        {
+
+            bool encontrado  =  EntrarSala.verificarSala(Codigo,Nombre);
             
             return View();
         }
