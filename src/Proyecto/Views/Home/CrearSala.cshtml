@@ -91,7 +91,7 @@
 
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#myModal2">Aceptar</button>
+                        <button type="button" class="salab" data-dismiss="modal" data-toggle="modal" data-target="#myModal2">Aceptar</button>
                     </div>
 
                 </div>
@@ -111,16 +111,19 @@
 
                     <!-- Modal body -->
                     <div class="modal-body">
-                        <div class="form-group">
-                            <label for="usr">Nombre de la sala:</label>
-                            <input type="text" class="form-control" id="usr">
+                        <h5>Nombre de la sala:</h5>
+                        <br />
+                        <div class="form__div">
+                            <input type="text" class="form__input" placeholder=" ">
+                            <label for="" class="form__label">Nombre</label>
                         </div>
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
 
-                </div>
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Confirmar</button>
+                        </div>
+
+                    </div>
              </div>
         </div>
 
@@ -237,23 +240,41 @@
 
     <style>
 
-        .checkbox-symbol {
-  position: absolute;
-  width: 0;
-  height: 0;
-  pointer-events: none;
-  user-select: none;
-}
+        .modal-header {
+            background: #1c1c1c;
+        }
 
-.checkbox-container {
-  box-sizing: border-box;
-  background: #ffffff;
-  color: #222;
-  height: 64px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: row wrap;
+        .modal-body {
+            background: #1c1c1c;
+            color: #ffffff;
+        }
+
+        .modal-footer {
+            background: #1c1c1c;
+        }
+
+        .modal-title {
+            color: #ffffff;
+        }
+
+        .checkbox-symbol {
+            position: absolute;
+             width: 0;
+            height: 0;
+            pointer-events: none;
+            user-select: none;
+        }
+
+
+        .checkbox-container {
+            box-sizing: border-box;
+            background: #1c1c1c;
+            color: #ffffff;
+            height: 64px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: row wrap;
 }
 
 .checkbox-container * {
@@ -338,7 +359,7 @@
 
         #crearsal {
             /*height: 510px;*/
-            background-color: #404040;
+            background-color: #1c1c1c ;
             color: white;
             font-family: 'Helvetica Neue LT Std';
         }
@@ -530,6 +551,139 @@
                 margin-left: 12px;
                 background-color: white;
             }
+
+
+        :root {
+            /*===== Colores =====*/
+            --first-color: #1A73E8;
+            --input-color: #80868B;
+            --border-color: #DADCE0;
+            /*===== Fuente y tipografia =====*/
+            --body-font: 'Roboto', sans-serif;
+            --normal-font-size: 1rem;
+            --small-font-size: .75rem;
+        }
+
+        /*===== BASE =====*/
+        *, ::before, ::after {
+            box-sizing: border-box;
+        }
+
+        :root {
+            /*===== Colores =====*/
+            --first-color: #1A73E8;
+            --input-color: #1c1c1c;
+            --border-color: #DADCE0;
+            /*===== Fuente y tipografia =====*/
+            --body-font: 'Roboto', sans-serif;
+            --normal-font-size: 1rem;
+            --small-font-size: .75rem;
+        }
+
+        /*===== BASE =====*/
+        *, ::before, ::after {
+            box-sizing: border-box;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        /*===== FORM =====*/
+        .l-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form {
+            width: 360px;
+            padding: 4rem 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(92,99,105,.2);
+        }
+
+        .form__title {
+            font-weight: 400;
+            margin-bottom: 3rem;
+        }
+
+        .form__div {
+            position: relative;
+            height: 48px;
+            margin-bottom: 1.5rem;
+        }
+
+        .form__input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-size: var(--normal-font-size);
+            border: 1px solid var(--border-color);
+            border-radius: .5rem;
+            outline: none;
+            padding: 1rem;
+            text-shadow: none;
+            background-color: #ffffff;
+            z-index: 1;
+        }
+
+        .form__label {
+            position: absolute;
+            left: 1rem;
+            top: 1rem;
+            padding: 0 .25rem;
+            background-color: #1c1c1c;
+            color: #ffffff;
+            font-size: var(--normal-font-size);
+            transition: .3s;
+        }
+
+        .form__button {
+            display: block;
+            margin-left: auto;
+            padding: .75rem 2rem;
+            outline: none;
+            border: none;
+            background-color: var(--first-color);
+            color: #fff;
+            font-size: var(--normal-font-size);
+            border-radius: .5rem;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+            .form__button:hover {
+                box-shadow: 0 10px 36px rgba(0,0,0,.15);
+            }
+
+        /*Input focus move up label*/
+        .form__input:focus + .form__label {
+            top: -.5rem;
+            left: .8rem;
+            color: var(--first-color);
+            font-size: var(--small-font-size);
+            font-weight: 500;
+            z-index: 10;
+        }
+
+        /*Input focus sticky top label*/
+        .form__input:not(:placeholder-shown).form__input:not(:focus) + .form__label {
+            top: -.5rem;
+            left: .8rem;
+            font-size: var(--small-font-size);
+            font-weight: 500;
+            z-index: 10;
+        }
+
+        /*Input focus*/
+        .form__input:focus {
+            border: 1.5px solid var(--first-color);
+        }
+
     </style>
 
     <!-- The Modal -->

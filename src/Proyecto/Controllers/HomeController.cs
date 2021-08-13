@@ -44,7 +44,7 @@ namespace Proyecto.Controllers
 
             return View();
         }
-        public ActionResult CrearSala(string Nombre)
+        public ActionResult CrearSala()
         {
             //ViewBag.Codigo = CrearSalas.Codigo();
             return View();
@@ -52,7 +52,7 @@ namespace Proyecto.Controllers
         public ActionResult EntrarSalas(int Codigo, string Nombre)
         {
 
-            bool encontrado  =  EntrarSala.verificarSala(Codigo,Nombre);
+            //bool encontrado  =  EntrarSala.verificarSala(Codigo,Nombre);
             
             return View();
         }

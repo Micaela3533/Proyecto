@@ -263,6 +263,7 @@
     <Content Include="Views\Home\Comedia.cshtml" />
     <Content Include="Views\Home\Crimen.cshtml" />
     <Content Include="Views\Home\Animacion.cshtml" />
+    <Content Include="Views\Home\SalaCreada.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
