@@ -264,6 +264,7 @@
     <Content Include="Views\Home\Crimen.cshtml" />
     <Content Include="Views\Home\Animacion.cshtml" />
     <Content Include="Views\Home\SalaCreada.cshtml" />
+    <Content Include="Views\Home\EntrarSalas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

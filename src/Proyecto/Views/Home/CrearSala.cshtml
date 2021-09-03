@@ -29,6 +29,8 @@
                         <h10>Duracion: @ViewBag.Duracion minutos</h10><br>
                         <h10>Año: @ViewBag.año </h10><br>
                         <h10>Generos: @ViewBag.genero </h10><br>
+                        <h10>cpodigo: @ViewBag.Codigo </h10><br>
+
                     </div>
                 </div>
             </div>
@@ -64,7 +66,7 @@
                         </svg>
 
                         <div class="checkbox-container">
-                            <input class="checkbox-input" id="apples" type="checkbox"/>
+                            <input class="checkbox-input" id="apples" type="checkbox" />
                             <label class="checkbox" for="apples">
                                 <span>
                                     <svg width="12px" height="10px">
@@ -73,7 +75,7 @@
                                 </span>
                                 <span>Sala publica</span>
                             </label>
-                            <input class="checkbox-input" id="oranges" type="checkbox"/>
+                            <input class="checkbox-input" id="oranges" type="checkbox" />
                             <label class="checkbox" for="oranges">
                                 <span>
                                     <svg width="12px" height="10px">
@@ -111,25 +113,44 @@
 
                     <!-- Modal body -->
                     <div class="modal-body">
-                        <h5>Nombre de la sala:</h5>
-                        <br />
-                        <div class="form__div">
-                            <input type="text" class="form__input" placeholder=" ">
-                            <label for="" class="form__label">Nombre</label>
-                        </div>
+                        <h5>
+                            Nombre de la sala:
+                        </h5>
 
-                        <!-- Modal footer -->
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">Confirmar</button>
-                        </div>
+                        <!-- <div class="form__div">
+                        <input type="text" name="Nombre" class="form__input" placeholder=" ">
+                        <label for="" class="form__label">Nombre</label>
+                    </div>
+
+                    <!-- Modal footer --
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-primary" data-dismiss="modal">Confirmar</button>
+                                            </div>-->
+
+
+                        <form method="post">
+                           
+                            <div class="user-box">
+                                <input type="text" name="nombre" required="">
+                                <label>Nombre</label>
+                            </div>
+
+                            <button type="submit" class="botonlog" >
+                                Ingresar
+                            </button>
+                        </form>
+                        <br />
+
+
+
 
                     </div>
-             </div>
+                </div>
+            </div>
+
         </div>
 
-    </div>
-
-    </div>
+        
 
 
 
@@ -259,7 +280,7 @@
 
         .checkbox-symbol {
             position: absolute;
-             width: 0;
+            width: 0;
             height: 0;
             pointer-events: none;
             user-select: none;
@@ -275,81 +296,81 @@
             justify-content: center;
             align-items: center;
             flex-flow: row wrap;
-}
+        }
 
-.checkbox-container * {
-  box-sizing: border-box;
-}
+            .checkbox-container * {
+                box-sizing: border-box;
+            }
 
-.checkbox-input {
-  position: absolute;
-  visibility: hidden;
-}
+        .checkbox-input {
+            position: absolute;
+            visibility: hidden;
+        }
 
-.checkbox {
-  user-select: none;
-  cursor: pointer;
-  padding: 6px 8px;
-  border-radius: 6px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  display: flex;
-}
+        .checkbox {
+            user-select: none;
+            cursor: pointer;
+            padding: 6px 8px;
+            border-radius: 6px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+        }
 
-.checkbox:not(:last-child) {
-  margin-right: 6px;
-}
+            .checkbox:not(:last-child) {
+                margin-right: 6px;
+            }
 
-.checkbox:hover {
-  background: rgba(0, 119, 255, 0.06);
-}
+            .checkbox:hover {
+                background: rgba(0, 119, 255, 0.06);
+            }
 
-.checkbox span {
-  vertical-align: middle;
-  transform: translate3d(0, 0, 0);
-}
+            .checkbox span {
+                vertical-align: middle;
+                transform: translate3d(0, 0, 0);
+            }
 
-.checkbox span:first-child {
-  position: relative;
-  flex: 0 0 18px;
-  width: 18px;
-  height: 18px;
-  border-radius: 4px;
-  transform: scale(1);
-  border: 1px solid #cccfdb;
-  transition: all 0.3s ease;
-}
+                .checkbox span:first-child {
+                    position: relative;
+                    flex: 0 0 18px;
+                    width: 18px;
+                    height: 18px;
+                    border-radius: 4px;
+                    transform: scale(1);
+                    border: 1px solid #cccfdb;
+                    transition: all 0.3s ease;
+                }
 
-.checkbox span:first-child svg {
-  position: absolute;
-  top: 3px;
-  left: 2px;
-  fill: none;
-  stroke: #fff;
-  stroke-dasharray: 16px;
-  stroke-dashoffset: 16px;
-  transition: all 0.3s ease;
-  transform: translate3d(0, 0, 0);
-}
+                    .checkbox span:first-child svg {
+                        position: absolute;
+                        top: 3px;
+                        left: 2px;
+                        fill: none;
+                        stroke: #fff;
+                        stroke-dasharray: 16px;
+                        stroke-dashoffset: 16px;
+                        transition: all 0.3s ease;
+                        transform: translate3d(0, 0, 0);
+                    }
 
-.checkbox span:last-child {
-  padding-left: 8px;
-  line-height: 18px;
-}
+                .checkbox span:last-child {
+                    padding-left: 8px;
+                    line-height: 18px;
+                }
 
-.checkbox:hover span:first-child {
-  border-color: #0077ff;
-}
+            .checkbox:hover span:first-child {
+                border-color: #0077ff;
+            }
 
-.checkbox-input:checked + .checkbox span:first-child {
-  background: #0077ff;
-  border-color: #0077ff;
-  animation: zoom-in-out 0.3s ease;
-}
+        .checkbox-input:checked + .checkbox span:first-child {
+            background: #0077ff;
+            border-color: #0077ff;
+            animation: zoom-in-out 0.3s ease;
+        }
 
-.checkbox-input:checked + .checkbox span:first-child svg {
-  stroke-dashoffset: 0;
-}
+            .checkbox-input:checked + .checkbox span:first-child svg {
+                stroke-dashoffset: 0;
+            }
 
 
 
@@ -359,7 +380,7 @@
 
         #crearsal {
             /*height: 510px;*/
-            background-color: #1c1c1c ;
+            background-color: #1c1c1c;
             color: white;
             font-family: 'Helvetica Neue LT Std';
         }
@@ -683,35 +704,48 @@
         .form__input:focus {
             border: 1.5px solid var(--first-color);
         }
-
     </style>
 
-    <!-- The Modal -->
-    <div class="modal fade" id="myModal">
+
+
+
+
+
+
+    <!--  <div class="container">
+         The Modal --
+    <div class="modal fade" id="entrar">
         <div class="modal-dialog">
             <div class="modal-content">
 
-                <!-- Modal Header -->
+                <!-- Modal Header --
                 <div class="modal-header">
-                    <h4 class="modal-title">Modal Heading</h4>
+                    <h3 class="modal-title">Entrar a sala</h3>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
-                <!-- Modal body -->
+                <!-- Modal body --
                 <div class="modal-body">
-                    Modal body..
+
+                    <h5>Nombre: </h5>
+                    <input id="nombre" name="Nombre" type="text" />
+                    <h5>Codigo: </h5>
+                    <input id="contraseña" name="Nombre" type="text" />
+
+                    <br>
+
                 </div>
 
-                <!-- Modal footer -->
+                <!-- Modal footer --
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <a id="verificar" href="">Aceptar</a>
                 </div>
 
             </div>
         </div>
     </div>
-
     </div>
+        -->
 
 
 </body>

@@ -34,6 +34,7 @@ namespace Proyecto.Controllers
 
             return View();
         }
+
         public ActionResult IniciarSesion()
         {
 
@@ -44,18 +45,13 @@ namespace Proyecto.Controllers
 
             return View();
         }
-        public ActionResult CrearSala()
-        {
-            //ViewBag.Codigo = CrearSalas.Codigo();
-            return View();
-        }
-        public ActionResult EntrarSalas(int Codigo, string Nombre)
-        {
 
-            //bool encontrado  =  EntrarSala.verificarSala(Codigo,Nombre);
-            
+
+        public ActionResult SalaCreada()
+        {
             return View();
         }
+       
         public ActionResult PeliIndi()
         {
             //ViewBag.lista = PeliculaData.ObtenerTodas();
@@ -109,9 +105,45 @@ namespace Proyecto.Controllers
             ViewBag.Descripcion = peli.Descripcion;
             ViewBag.Duracion = peli.Duracion;
             ViewBag.año = peli.Año;
-            ViewBag.genero = peli.Genero;
+            ViewBag.genero = peli.Genero; 
             return View("CrearSala");
         }
+        [HttpPost]
 
+        public ActionResult DetallePelicula(string Nombre)
+        {
+            ViewBag.Codigo = CrearSalas.Codigo(Nombre);
+            ViewBag.Nombre = Nombre;
+
+
+            return View("SalaCreada");
+        }
+        public ActionResult EntrarSalas()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult EntrarSalas(string nombre, int codigo)
+        {
+
+            bool encontrado = EntrarSala.Verificar(codigo, nombre);
+            if (encontrado == true)
+            {
+                return View("SalaCreada");
+            }
+            else
+            {
+                ViewBag.Mensaje = "Los datos ingresados no son correctos";
+                return View();
+            }
+
+        }
+
+        public ActionResult CrearSala()
+        {
+
+            return View();
+        }
     }
 }

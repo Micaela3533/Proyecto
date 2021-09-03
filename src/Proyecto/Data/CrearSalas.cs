@@ -24,25 +24,29 @@ namespace Proyecto.Data
             int max = 999999999;
             Random rdn = new Random();
             int a = rdn.Next(min, max);
-            while (Verificar(a,nombre) == false)
+
+
+            if(Verificar(a, nombre) != false)
             {
                 a = rdn.Next(min, max);
             }
             return a;
         }
 
-        public static bool Verificar(int Codigo,string nombre)
+        public static bool Verificar(int Codigo, string nombre)
         {
-            string select = "select* from codigo where codigo =" + Codigo;
+            string select = "select * from codigo where codigo =" + Codigo;
             DataTable dt = DBHelper.EjecutarSelect(select);
-            bool encontro = false;
+            bool encontro = true;
             if (dt.Rows.Count == 0)
             {
-                encontro = true;
-                select = "insert into codigo value (" + Codigo + "," + nombre +")";
+                encontro = false;
+                select = "insert into codigo value (" + Codigo + " ,'" + nombre + "')";
                 DBHelper.EjecutarSelect(select);
             }
             return encontro;
         }
     }
+
 }
+

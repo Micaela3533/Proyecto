@@ -1,17 +1,267 @@
-﻿@{
-    Layout = null;
+﻿@{ 
+    ViewBag.Title = "Sala"; 
 }
-
 <!DOCTYPE html>
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
+    <title>Sala - Krillo</title>
 </head>
 <body>
-    <div>
-    
-    </div>
+
+        <!--Chat-->
+        <div id="chat">
+            <div class="chat_header">Chat</div>
+            <div id="chat_s"></div>
+            <script type="text/javascript">
+                var submitted = false;
+            </script>
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){add()}"></iframe>
+            <form id="ss-form" onsubmit="submitted=true" action="https://docs.google.com/forms/d/1-PRLoHTtgldV5cNTvmVyjf-rf1p1kLhzKGXn2i1XGhQ/formResponse" method="POST" target="hidden_iframe">
+                <input name="entry.1732478127" title="" class="ss-q-short" id="entry_1732478127" dir="auto" aria-label="Message  " type="text" value="" placeholder="Escribe un mensaje">
+                <input name="draftResponse" type="hidden" value='[,,"-2195881827543510175"]&#10;'>
+                <input name="pageHistory" type="hidden" value="0">
+                <input name="fvv" type="hidden" value="0">
+                <input name="fbzx" type="hidden" value="-2195881827543510175">
+                <input name="submit" class="jfk-button jfk-button-action " id="ss-submit" type="submit" value=">" onClick="return check()">
+            </form>
+        </div>
+        
+        <!--Participantes-->
+        <div class="participantes">
+            <div class="imgPart">
+                <img src="https://www.tiendadeglobos.com/5598-large_default/globo-peppa-pig-redondo-foil.jpg" />
+            </div>
+        </div>
+
+        <div class="infoPart">
+            <p><img src="https://www.tiendadeglobos.com/5598-large_default/globo-peppa-pig-redondo-foil.jpg" />Tomi</p>
+        </div>
+        
+
+        <div class="video">
+            <iframe class="video" src="https://www.youtube.com/embed/z70zo9gQUKA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+   
+        <div class="info-peli">
+        <h3>Avengers: Endgame</h3>
+            <!--Info de la peli-->
+        <p>Los Vengadores restantes deben encontrar una manera de recuperar a sus aliados para un enfrentamiento épico con Thanos, el malvado que diezmó el planeta y el universo.</p>
+        </div>
+
+
+
+    <style>
+
+        .video {
+            position: fixed;
+            top: 7%;
+            height: 77%;
+            width: 69%;
+            left: 0;
+            border-bottom: 1px solid #242424;
+        }
+
+        .info-peli {
+            background: #000;
+            position: fixed;
+            top: 85%;
+            width: 34%;
+            height: 100%;
+            left: 1%;
+            color: #fff;
+        }   
+        
+        /*participantes*/
+        .participantes {
+            position: fixed;
+            background: #171717;
+            top: 7%;
+            right: 0;
+            height: 100%;
+            left: 95%;
+            width: 5%;
+            border-left: 1px solid #242424;
+        }
+
+        .imgPart img {
+            width: 40px;
+            border-radius: 50%;
+            margin: 15px;
+        }
+
+        .infoPart{
+            position: fixed;
+            background: #000;
+            width: 15%;
+            height: 8%;
+            color: #fff;
+            right: 5%;
+            top: 7%;
+            border: 1px solid #242424;
+        }
+        
+        .infoPart img {
+            width: 40px;
+            border-radius: 50%;
+            margin: 15px;
+
+        }
+
+        /*caja chat*/
+        #chat {
+            height: 93%;
+            top: 7%;
+            right: 5%;
+            left: 69%;
+            border-left: 1px solid #242424;
+            max-width: calc(100vw - 40px);
+            font-family: "Montserrat", sans-serif;
+            position: fixed;
+            background: #171717;
+            color: white;
+        }
+
+        .chat_header {
+            padding: 15px;
+            border-bottom: 1px solid #242424;
+            color: #ffffff;
+            margin-bottom: 8px;
+            font-size: 14px;
+            background: #171717;
+        }
+
+        .chat {
+            margin: 14px;
+            border: 1px solid #ff7f50;
+            padding: 8px;
+            width: 220px;
+            border-radius: 10px 10px 10px 0;
+            max-width: calc(100% - 48px);
+            font-size: 0.85em;
+            word-break: break-word;
+        }
+
+        /*nombre lider*/
+        .chat_name {
+            text-transform: uppercase;
+            font-size: 0.75em;
+            margin: 4px 0 2px;
+        }
+
+        /*mensaje*/
+        .chat_other {
+            border-radius: 10px 10px 0 10px;
+            margin-left: calc(100% - 249px);
+            border-color: #65969c;
+            float: right;
+            background: #3d3d3d;
+        }
+
+
+        #chat form {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            width: calc(100% - 20px);
+        }
+
+        /*input mensaje*/
+        #chat input[type="text"] {
+            width: calc(100% - 44px);
+            box-sizing: border-box;
+            padding: 10px;
+            border-color: #242424;
+            font-family: "Montserrat", sans-serif;
+            background: #3d3d3d;
+            color: white;
+            border-radius: 10px 10px 10px 10px;
+        }
+
+        /*boton enviar*/
+        #chat input[type="submit"] {
+            width: 50px;
+            position: absolute;
+            box-sizing: border-box;
+            padding: 10px;
+            margin-left: -1px;
+            border-color: #242424;
+            font-family: "Montserrat", sans-serif;
+            cursor: pointer;
+            background: #3d3d3d;
+            color: white;
+            border-radius: 10px 10px 10px 10px
+        }
+
+        #chat_s {
+            overflow-y: scroll;
+            max-height: 360px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 13px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 0 4px #fff;
+            background: rgba(0, 0, 0, 0.2);
+        }
+    </style>
+
+    <script>
+        $.getJSON(
+            "https://spreadsheets.google.com/feeds/list/1bGgvgvlumPjv1NrL8-EpFPQpgv2zObV_02M6NvzgyRM/od6/public/values?alt=json",
+            function (data) {
+                console.log(data);
+                for (var i = 0; i < data.feed.entry.length; i++) {
+                    var entry = data.feed.entry[i];
+                    var a, b;
+                    if (entry.gsx$name.$t == "Ariana") {
+                        a = "Ariana";
+                        b = "";
+                    } else {
+                        a = entry.gsx$message.$t;
+                        b = " chat_other";
+                    }
+                    document.getElementById("chat_s").innerHTML +=
+                        '<div class="chat' +
+                        b +
+                        '"><div class="chat_message">' +
+                        entry.gsx$_cpzh4.$t +
+                        '</div><div class="chat_name">' +
+                        a +
+                        "</div></div>";
+                }
+            }
+        );
+
+        function add() {
+            document.getElementById("chat_s").innerHTML +=
+                '<div class="chat chat_other"><div class="chat_message">' +
+                document.querySelector("#chat input").value +
+                '</div><div class="chat_name">' +
+                "Lider" +
+                "</div></div>";
+            document.querySelector("#chat input").value = "";
+            document.getElementById("chat_s").scrollTop = document.getElementById(
+                "chat_s"
+            ).scrollHeight;
+        }
+
+        function check() {
+            var x;
+            x = document.getElementById("entry_1732478127").value;
+            if (!x.replace(/\s/g, "").length) {
+                alert(
+                    "No se puede mandar un mensaje vacio "
+                );
+                return false;
+            }
+        }
+
+    </script>
+
+
 </body>
 </html>
