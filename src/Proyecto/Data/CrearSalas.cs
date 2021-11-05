@@ -41,7 +41,7 @@ namespace Proyecto.Data
             if (dt.Rows.Count == 0)
             {
                 encontro = false;
-                select = "insert into codigo value (" + Codigo + " ,'" + nombre + "')";
+                select = " INSERT INTO `krillo`.`salas` (`nombre`,`codigo` ) VALUES ('" + nombre + "','" + Codigo + "')";
                 DBHelper.EjecutarSelect(select);
             }
             return encontro;

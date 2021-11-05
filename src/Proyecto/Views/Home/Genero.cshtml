@@ -1,0 +1,100 @@
+﻿@using Proyecto.Models;
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>@ViewBag.Titulo - Krillo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+
+ 
+
+    <div class="container">
+        <div class="row">
+            @foreach (Pelicula peli in ViewBag.Peliculas)
+            {
+                <div class="col-3">
+                    <a href="@Url.Action("DetallePelicula", "Home",new { Id=peli.Id})" style="text-decoration:none;">
+                        <div class="card genero" style="background:url(@peli.Imagen); background-size: cover;"></div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+
+
+    @*@foreach (Genero g in ViewBag.Generos)
+        {
+        <a href="@Url.Action("Genero", "Home", new { idGenero = g.Id })" style="text-decoration:none;">
+            <div id="@(g.Id + "card")" class="card genero" loop style="background:url(@g.Gif); background-size: cover;" )">
+                <p>@g.Nombre</p>
+
+            </div>
+        </a>
+
+        }*@
+
+
+    <style>
+
+        html, body {
+            padding: 0;
+        }
+
+        .carousel-item {
+            height: 430px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            margin-top: 100px;
+        }
+
+        .card {
+            display: flex;
+            justify-content: center;
+            height: 174px;
+            width: 307px;
+            background-image: linear-gradient(rgb(58, 60, 74), rgb(36, 38, 50));
+            box-shadow: rgba(0, 0, 0, 0.69) 0px 26px 30px -10px, rgba(0, 0, 0, 0.73) 0px 16px 10px -10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            border: 1px solid #3e404c;
+            cursor: pointer;
+            transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+        }
+
+        .genero {
+            background-size: cover;
+        }
+
+
+            .genero p {
+                color: #fff;
+                font-size: 27px;
+                margin: 0;
+                padding: 0;
+                position: absolute;
+                left: 50%;
+                top: 0;
+                transform: translateX(-50%);
+            }
+
+
+            .genero:hover {
+                background: url('https://media.giphy.com/media/eZcCIyfkF8wIx0tgfG/giphy.gif');
+                background-size: cover;
+                border: 1px solid white;
+                transform: scale(1.05);
+            }
+    </style>
+
+</body>
+</html>
+

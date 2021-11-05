@@ -8,7 +8,6 @@ using Proyecto.Data;
 using System.Data.SqlClient;
 using Proyecto.Models;
 
-
 namespace Proyecto.Controllers
 {
     public class HomeController : Controller
@@ -19,6 +18,7 @@ namespace Proyecto.Controllers
         {
             //ViewBag.codigo = CrearSalas.Llenar();
             ViewBag.lista = PeliculaData.ObtenerCarousel();
+            ViewBag.Generos  =  GeneroData.ObtenerGeneros();
             return View();
 
         }
@@ -28,75 +28,20 @@ namespace Proyecto.Controllers
             var lista = PeliculaData.ObtenerTodas();
             return View();
         }
-
-        public ActionResult Series()
-        {
-
-            return View();
-        }
-
-        public ActionResult IniciarSesion()
-        {
-
-            return View();
-        }
-        public ActionResult Registrarse()
-        {
-
-            return View();
-        }
-
-
-        public ActionResult SalaCreada()
-        {
-            return View();
-        }
-       
         public ActionResult PeliIndi()
         {
             //ViewBag.lista = PeliculaData.ObtenerTodas();
             return View();
         }
-        public ActionResult Accion()
+
+
+        public ActionResult Genero(int idGenero)
         {
-            ViewBag.Accion = PeliculaData.ObtenerAccion();
+            ViewBag.Titulo = GeneroData.ObtenerGenero(idGenero).Nombre;
+            ViewBag.Peliculas = PeliculaData.ObtenerPorGenero(idGenero);
             return View();
         }
-        public ActionResult CienciaFiccion()
-        {
-            ViewBag.CFiccion = PeliculaData.ObtenerCFiccion();
-            return View();
-        }
-        public ActionResult Fantasia()
-        {
-            ViewBag.Fantasia = PeliculaData.ObtenerFantasia();
-            return View();
-        }
-        public ActionResult Aventura()
-        {
-            ViewBag.Fantasia = PeliculaData.ObtenerAventura();
-            return View();
-        }
-        public ActionResult Thriller()
-        {
-            ViewBag.Fantasia = PeliculaData.ObtenerThriller();
-            return View();
-        }
-        public ActionResult Comedia()
-        {
-            ViewBag.Fantasia = PeliculaData.ObtenerComedia();
-            return View();
-        }
-        public ActionResult Crimen()
-        {
-            ViewBag.Fantasia = PeliculaData.ObtenerCrimen();
-            return View();
-        }
-        public ActionResult Animacion()
-        {
-            ViewBag.Fantasia = PeliculaData.ObtenerAventura();
-            return View();
-        }
+
         public ActionResult DetallePelicula(int id)
         {
             Pelicula peli=PeliculaData.BuscarPorId(id);
@@ -108,26 +53,25 @@ namespace Proyecto.Controllers
             ViewBag.genero = peli.Genero; 
             return View("CrearSala");
         }
-        [HttpPost]
-
+        [System.Web.Mvc.HttpPost]
         public ActionResult DetallePelicula(string Nombre)
         {
             ViewBag.Codigo = CrearSalas.Codigo(Nombre);
             ViewBag.Nombre = Nombre;
-
-
             return View("SalaCreada");
-        }
+        }     
+     
+
         public ActionResult EntrarSalas()
         {
-            return View();
+            return View("EntrarSalas");
         }
 
-        [HttpPost]
-        public ActionResult EntrarSalas(string nombre, int codigo)
+        [System.Web.Mvc.HttpPost]
+        public ActionResult EntrarSalas( string mensaje, string nombre , int codigo )
         {
-
             bool encontrado = EntrarSala.Verificar(codigo, nombre);
+            
             if (encontrado == true)
             {
                 return View("SalaCreada");
@@ -138,12 +82,39 @@ namespace Proyecto.Controllers
                 return View();
             }
 
+
+
         }
 
         public ActionResult CrearSala()
         {
 
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult CrearSala(string mensaje)
+        {
+            //MensajeData.Insertar(mensaje);
+            return View();
+        }
+
+        public ActionResult SalaCreada()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult SalaCreada(string mensaje)
+        {
+            //MensajeData.Insertar(mensaje);
+            return View();
+        }
+
+        [HttpGet]
+        public IList<MensajexSala> GetMensajexSalas(int idSala) 
+        {
+            return MensajeData.ObtenerMensajesxSala(idSala);
         }
     }
 }

@@ -19,7 +19,7 @@ namespace Proyecto.Data
 
         public static bool Verificar(int Codigo, string nombre)
         {
-            string select = "select* from codigo where codigo =" + Codigo + " and nombre='" + nombre + "'";
+            string select = "select * from salas where codigo =" + Codigo;
             DataTable dt = DBHelper.EjecutarSelect(select);
             bool encontro = false;
             if (dt.Rows.Count != 0)

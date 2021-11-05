@@ -20,7 +20,9 @@
                 <div class="card" id="crearsal">
                     <img class="card-img-top" src="@ViewBag.Imagen" alt="Card image cap">
                     <div class="boton-container">
-                        <a href="#" data-toggle="modal" data-target="#myModal" style="display: inline-block;" onclick="crearSala()" class="salab"><ion-icon style="display: inline-block;vertical-align:-2px;" name="people"></ion-icon> Crear Sala</a>
+
+
+                        <a href="#" data-toggle="modal" data-target="#myModal2" style="display: inline-block;" onclick="crearSala()" class="salab"><ion-icon style="display: inline-block;vertical-align:-2px;" name="people"></ion-icon> Crear Sala</a>
                         <a href="@Url.Action("PeliIndi","Home")" style="display: inline-block;" class="salab"><ion-icon style="display: inline-block;vertical-align:-2px;" name="play-circle"></ion-icon> Ver Ahora</a>
                     </div>
                     <div style="position:relative" class="card-body">
@@ -29,7 +31,6 @@
                         <h10>Duracion: @ViewBag.Duracion minutos</h10><br>
                         <h10>Año: @ViewBag.año </h10><br>
                         <h10>Generos: @ViewBag.genero </h10><br>
-                        <h10>cpodigo: @ViewBag.Codigo </h10><br>
 
                     </div>
                 </div>

@@ -59,6 +59,26 @@ namespace Proyecto.Data
             return listaPeliculas;
         }
 
+        public static List<Pelicula> ObtenerPorGenero(int idGenero)
+        {
+            string select = "select distinct p.idpelicula, p.nombre, p.año, p.descripcion, p.imagen, p.duracion, p.generos" +
+                " from peliculas p inner join peliculaxgenero pg on p.idpelicula=pg.idpelicula and pg.idgenero=" + idGenero;
+                
+            DataTable dt = DBHelper.EjecutarSelect(select);
+            List<Pelicula> listaPeliculas = new List<Pelicula>();
+            Pelicula p;
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    p = ObtenerPorRow(row);
+                    listaPeliculas.Add(p);
+                }
+                p = ObtenerPorRow(dt.Rows[0]);
+            }
+            return listaPeliculas;
+
+        }
         public static List<Pelicula> ObtenerAccion()
         {
             string select = "select * from peliculas where generos like '%Accion%' ";
