@@ -206,7 +206,6 @@
     <Compile Include="Data\GeneroData.cs" />
     <Compile Include="Data\MensajeData.cs" />
     <Compile Include="Data\PeliculaData.cs" />
-    <Compile Include="Data\SeriesData.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -214,7 +213,6 @@
     <Compile Include="Models\Mensaje.cs" />
     <Compile Include="Models\Pelicula.cs" />
     <Compile Include="Models\Sala.cs" />
-    <Compile Include="Models\Series.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -272,18 +270,9 @@
     <Content Include="Views\Home\Registrarse.cshtml" />
     <Content Include="Views\Home\CrearSala.cshtml" />
     <Content Include="Views\Home\PeliIndi.cshtml" />
-    <Content Include="Views\Home\Accion.cshtml" />
-    <Content Include="Views\Home\Fantasia.cshtml" />
-    <Content Include="Views\Home\Thriller.cshtml" />
-    <Content Include="Views\Home\CienciaFiccion.cshtml" />
-    <Content Include="Views\Home\Aventura.cshtml" />
-    <Content Include="Views\Home\Comedia.cshtml" />
-    <Content Include="Views\Home\Crimen.cshtml" />
-    <Content Include="Views\Home\Animacion.cshtml" />
     <Content Include="Views\Home\SalaCreada.cshtml" />
     <Content Include="Views\Home\EntrarSalas.cshtml" />
     <Content Include="Views\Home\Genero.cshtml" />
-    <Content Include="Views\Home\chat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
