@@ -1,5 +1,5 @@
 ﻿
-setInterval(function hola() {
+setInterval(function Buscar() {
     fetch('/api/Mensaje/GetMensajexSalas/135')
         .then(res => res.json())
 

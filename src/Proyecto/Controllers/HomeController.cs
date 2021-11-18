@@ -37,6 +37,7 @@ namespace Proyecto.Controllers
 
         public ActionResult Genero(int idGenero)
         {
+            ViewBag.lista = PeliculaData.ObtenerCarousel();
             ViewBag.Titulo = GeneroData.ObtenerGenero(idGenero).Nombre;
             ViewBag.Peliculas = PeliculaData.ObtenerPorGenero(idGenero);
             return View();
