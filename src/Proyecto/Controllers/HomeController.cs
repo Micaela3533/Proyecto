@@ -25,7 +25,7 @@ namespace Proyecto.Controllers
 
         public ActionResult Peliculas()
         {
-            var lista = PeliculaData.ObtenerTodas();
+            ViewBag.Todas = PeliculaData.ObtenerTodas();
             return View();
         }
         public ActionResult PeliIndi()
