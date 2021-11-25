@@ -58,6 +58,13 @@ namespace Proyecto.Controllers
         public ActionResult DetallePelicula(string Nombre)
         {
             ViewBag.Codigo = CrearSalas.Codigo(Nombre);
+            Sala id = EntrarSala.BuscaridSala(ViewBag.Codigo);
+            TempData["idSala"] = id.Id;
+            if (TempData.ContainsKey("idSala"))
+            {
+                ViewBag.Mensaje = int.Parse(TempData["idSala"].ToString());
+            }
+
             ViewBag.Nombre = Nombre;
             return View("SalaCreada");
         }     
@@ -72,7 +79,21 @@ namespace Proyecto.Controllers
         public ActionResult EntrarSalas( string mensaje, string nombre , int codigo )
         {
             bool encontrado = EntrarSala.Verificar(codigo, nombre);
-            
+            Sala id = EntrarSala.BuscaridSala(codigo);
+            TempData["idSala"] = id.Id;
+            TempData["Nick"] = nombre;
+
+            if (TempData.ContainsKey("idSala"))
+            {
+                ViewBag.id = int.Parse(TempData["idSala"].ToString());
+            }
+            if (TempData.ContainsKey("Nick"))
+            {
+                ViewBag.Nick = TempData["Nick"].ToString();
+            }
+
+
+
             if (encontrado == true)
             {
                 return View("SalaCreada");
@@ -102,13 +123,26 @@ namespace Proyecto.Controllers
 
         public ActionResult SalaCreada()
         {
+
+            
             return View();
         }
 
         [HttpPost]
-        public ActionResult SalaCreada(string mensaje)
+        public ActionResult SalaCreada(string mensaje, string fecha)
         {
-            //MensajeData.Insertar(mensaje);
+            int idsala = 0;
+            string nombre = "";
+            if (TempData.ContainsKey("Nick"))
+            {
+                nombre = TempData["Nick"].ToString();
+            }
+
+            if (TempData.ContainsKey("idSala"))
+            {
+                idsala = int.Parse(TempData["idSala"].ToString());
+            }
+           MensajeData.Insertar(mensaje,nombre, idsala , fecha);
             return View();
         }
 

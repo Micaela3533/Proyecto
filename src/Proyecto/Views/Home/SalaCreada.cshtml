@@ -10,13 +10,13 @@
 </head>
 <body>
     <div id="chat">
-        <div class="chat_header"><button id="fullscreen">a</button> CHAT </div>
+        <div class="chat_header"><button id="fullscreen">a</button> CHAT</div>
         <div id="chat_s" onLoad="doSomething()"></div>
         <!--<script type="text/javascript">
-        var submitted = false;
-    </script>
-    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>-->
-        <form id="ss-form" >
+            var submitted = false;
+        </script>
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>-->
+        <form id="ss-form">
             <input type="text" id="mensaje" placeholder="Mensaje" />
             <input name="draftResponse" type="hidden" value='[,,"-2195881827543510175"]&#10;'>
             <input name="pageHistory" type="hidden" value="0">
@@ -25,6 +25,97 @@
             <input type="button" class="jfk-button jfk-button-action" onclick="Click()" value=">" />
         </form>
     </div>
+    <script>
+        setInterval(function Buscar() {
+            // var myValue = document.querySelector('#salaid').textContent;
+            // console.log(myValue);
+
+
+            fetch('/api/Mensaje/GetMensajexSalas/' + @ViewBag.id)
+                .then(res => res.json())
+
+                .then(json_extraido => {
+
+                    // console.log("json.search", json_extraido);
+                    var div = document.getElementById("chat_s");
+                    div.innerHTML = "";
+                    for (var i = 0; i < json_extraido.length; i++) {
+                        var entry = json_extraido[i];
+                        var a, b;
+                        a = entry.Usuario;
+                        b = "";
+
+                        div.innerHTML +=
+                            '<div class="chat' +
+                            b +
+                            '"><div class="chat_name">' +
+                            a +
+                            '</div><div class="chat_message">' +
+                            entry.Texto +
+                            "</div></div>";
+                    }
+                })
+                .catch(error => console.log("Fallo:" + error));
+
+
+        }, 1000);
+
+
+        function Click() {
+
+            var men = document.querySelector('#mensaje').value
+            var dat = new Date();
+            console.log(men);
+            console.log("fecha" + dat);
+            fetch('/Home/SalaCreada', {
+                method: 'post',
+                body: JSON.stringify({ mensaje: men , fecha: dat })
+            })
+                .then(function (response) {
+                    console.log("entramos")
+                    if (response.status !== 200) {
+                        console.log('fetch returned not ok' + response.status);
+                    }
+
+                    response.json().then(function (data) {
+                        console.log('fetch returned ok');
+                        console.log(data);
+                    });
+                })
+                .catch(function (err) {
+                    console.log(`error: ${err}`);
+                });
+        }
+
+
+        //código a ejecutar cuando el DOM está listo para recibir acciones
+        /*
+        fetch('/api/Mensaje/GetMensajexSalas/135', {
+            
+            //body: JSON.stringify({ idSala: 5 })
+        })
+    
+            .then(function (response) {
+                console.log("hola");
+                if (response.status !== 200) {
+                    console.log('fetch returned not ok' + response.status);
+                }
+                console.log(response.text());
+                
+            })
+            response.json().then(function (data) {
+            console.log('fetch returned ok');
+            console.log(data);
+        });
+            .catch(function (err) {
+                console.log(`error: ${err}`);
+            });
+    });
+    */
+
+
+    </script>
+
     <!--Chat--
       <div id="chat">
           <div class="chat_header"><button id="fullscreen">a</button> CHAT </div>
@@ -162,8 +253,7 @@
             text-transform: uppercase;
             font-size: 0.65em;
             margin: 4px 0 2px;
-            font-weight:900;
-
+            font-weight: 900;
         }
         /*mensaje*/
         .chat_other {
@@ -221,6 +311,11 @@
             background: rgba(0, 0, 0, 0.2);
         }
     </style>
+
+    <script>
+
+
+    </script>
 
 </body>
 </html>

@@ -10,7 +10,7 @@ namespace Proyecto.Models
         public int Id { get; set; }
         public string Texto { get; set; }
         public string Usuario { get; set; }
-        public DateTime Fecha { get; set; }
+        public string  Fecha { get; set; }
         public int IdSala { get; set; }
 
     }

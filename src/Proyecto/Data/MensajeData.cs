@@ -16,12 +16,12 @@ namespace Proyecto.Data
             m.Id = row.Field<int>("id");
             m.Texto = row.Field<string>("texto");
             m.IdSala = row.Field<int>("idSala");
-            m.Fecha = row.Field<DateTime>("fecha");
+            m.Fecha = row.Field<string>("fecha");
             m.Usuario = row.Field<string>("usuario");
             return m;
         }
 
-        public static void Insertar(string texto, int idUsuario, int idSala, DateTime fecha)
+        public static void Insertar(string texto, string idUsuario, int idSala, string fecha)
         {
 
             string insert = "INSERT INTO `krillo`.`mensajexsala` (`texto`, `idusuario`, `fecha`, `idSala`) " +

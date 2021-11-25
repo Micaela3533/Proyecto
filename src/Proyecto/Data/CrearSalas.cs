@@ -13,6 +13,7 @@ namespace Proyecto.Data
         private static Sala ObtenerPorRow(DataRow row)
         {
             Sala s = new Sala();
+            s.Codigo = row.Field<int>("idSala");
             s.Nombre = row.Field<string>("nombre");
             s.Codigo = row.Field<int>("codigo");
             return s;
@@ -32,6 +33,7 @@ namespace Proyecto.Data
             }
             return a;
         }
+        
 
         public static bool Verificar(int Codigo, string nombre)
         {
@@ -41,7 +43,7 @@ namespace Proyecto.Data
             if (dt.Rows.Count == 0)
             {
                 encontro = false;
-                select = " INSERT INTO `krillo`.`salas` (`nombre`,`codigo` ) VALUES ('" + nombre + "','" + Codigo + "')";
+                select = " INSERT INTO `krillo`.`codigo` (`nombre`,`codigo` ) VALUES ('" + nombre + "','" + Codigo + "')";
                 DBHelper.EjecutarSelect(select);
             }
             return encontro;
