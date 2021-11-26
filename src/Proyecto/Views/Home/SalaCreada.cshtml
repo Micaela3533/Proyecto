@@ -22,15 +22,12 @@
             <input name="pageHistory" type="hidden" value="0">
             <input name="fvv" type="hidden" value="0">
             <input name="fbzx" type="hidden" value="-2195881827543510175">
-            <input type="button" class="jfk-button jfk-button-action" onclick="Click()" value=">" />
+            <input type="button" class="jfk-button jfk-button-action" onclick="Click(@ViewBag.id, ' @ViewBag.Nick ' ) "  value=">" />
         </form>
     </div>
     <script>
-        setInterval(function Buscar() {
-            // var myValue = document.querySelector('#salaid').textContent;
-            // console.log(myValue);
 
-
+        setInterval(function Buscar() {          
             fetch('/api/Mensaje/GetMensajexSalas/' + @ViewBag.id)
                 .then(res => res.json())
 
@@ -61,31 +58,6 @@
         }, 1000);
 
 
-        function Click() {
-
-            var men = document.querySelector('#mensaje').value
-            var dat = new Date();
-            console.log(men);
-            console.log("fecha" + dat);
-            fetch('/Home/SalaCreada', {
-                method: 'post',
-                body: JSON.stringify({ mensaje: men , fecha: dat })
-            })
-                .then(function (response) {
-                    console.log("entramos")
-                    if (response.status !== 200) {
-                        console.log('fetch returned not ok' + response.status);
-                    }
-
-                    response.json().then(function (data) {
-                        console.log('fetch returned ok');
-                        console.log(data);
-                    });
-                })
-                .catch(function (err) {
-                    console.log(`error: ${err}`);
-                });
-        }
 
 
         //código a ejecutar cuando el DOM está listo para recibir acciones
@@ -214,9 +186,6 @@
             margin: 15px;
         }
 
-
-
-        /caja chat/
         #chat {
             height: 93%;
             top: 7%;
@@ -263,7 +232,6 @@
             word-break: break-word;
         }
 
-        /nombre lider/
         .chat_name {
             text-transform: uppercase;
             font-size: 0.65em;
@@ -271,7 +239,6 @@
             font-weight: 900;
         }
 
-        /mensaje/
         .chat_other {
             border-radius: 10px 10px 0 10px;
             margin-left: calc(100% - 249px);
@@ -286,8 +253,7 @@
             left: 10px;
             width: calc(100% - 20px);
         }
-
-        /input mensaje/
+       
         #chat input[type="text"] {
             width: calc(100% - 44px);
             box-sizing: border-box;
@@ -299,7 +265,6 @@
             border-radius: 10px 10px 10px 10px;
         }
 
-        /boton enviar/
         #chat input[type="button"] {
             width: 50px;
             position: absolute;
@@ -337,7 +302,7 @@
             left: 0;
             border-bottom: 1px solid #242424;
         }
-
+          
             .video.full {
                 position: fixed;
                 top: 0;

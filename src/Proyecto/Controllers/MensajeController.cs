@@ -45,5 +45,13 @@ namespace Proyecto.Controllers
         {
             return MensajeData.ObtenerMensajesxSala(idSala);
         }
+
+        [HttpPost]
+        [Route("api/mensaje/GuardarMensaje/")]
+        public IHttpActionResult GuardarMensaje([FromBody] MensajexSala salaMensaje)
+        {
+            MensajeData.Insertar(salaMensaje.Texto,salaMensaje.Usuario, salaMensaje.IdSala, salaMensaje.Fecha);
+            return Ok();
+        }
     }
 }

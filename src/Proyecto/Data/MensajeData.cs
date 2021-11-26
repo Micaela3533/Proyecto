@@ -16,16 +16,16 @@ namespace Proyecto.Data
             m.Id = row.Field<int>("id");
             m.Texto = row.Field<string>("texto");
             m.IdSala = row.Field<int>("idSala");
-            m.Fecha = row.Field<string>("fecha");
+            m.Fecha = row.Field<DateTime>("fecha");
             m.Usuario = row.Field<string>("usuario");
             return m;
         }
 
-        public static void Insertar(string texto, string idUsuario, int idSala, string fecha)
+        public static void Insertar(string texto, string idUsuario, int idSala, DateTime fecha)
         {
 
-            string insert = "INSERT INTO `krillo`.`mensajexsala` (`texto`, `idusuario`, `fecha`, `idSala`) " +
-                "VALUES ('"+ texto + "', '" + idUsuario + "', '" + fecha + "', '" + idSala + "')";
+            string insert = "INSERT INTO `krillo`.`mensajexsala` (`texto`, `usuario`, `fecha`, `idSala`) " +
+                "VALUES ('"+ texto + "', '" + idUsuario + "', '" + fecha.ToString("yyyy-MM-dd hh:mm:ss") + "', '" + idSala + "')";
             DBHelper.EjecutarIUD(insert);
         }
 

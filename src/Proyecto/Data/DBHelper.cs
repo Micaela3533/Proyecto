@@ -28,7 +28,8 @@ namespace Proyecto.Data
             }
         }
 
-        /// <summary>
+        /// <summary>datetime value: '2021-11-26T12:51:45.234Z' for column 'fecha' at row 1'
+
         /// Ejecutar un comando select y devolver su datatable correspondiente
         /// </summary>
         /// <param name="select"></param>                                                                                                                                                           

@@ -62,7 +62,7 @@ namespace Proyecto.Controllers
             TempData["idSala"] = id.Id;
             if (TempData.ContainsKey("idSala"))
             {
-                ViewBag.Mensaje = int.Parse(TempData["idSala"].ToString());
+                ViewBag.id = int.Parse(TempData["idSala"].ToString());
             }
 
             ViewBag.Nombre = Nombre;
@@ -128,23 +128,7 @@ namespace Proyecto.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult SalaCreada(string mensaje, string fecha)
-        {
-            int idsala = 0;
-            string nombre = "";
-            if (TempData.ContainsKey("Nick"))
-            {
-                nombre = TempData["Nick"].ToString();
-            }
 
-            if (TempData.ContainsKey("idSala"))
-            {
-                idsala = int.Parse(TempData["idSala"].ToString());
-            }
-           MensajeData.Insertar(mensaje,nombre, idsala , fecha);
-            return View();
-        }
 
         [HttpGet]
         public IList<MensajexSala> GetMensajexSalas(int idSala) 
