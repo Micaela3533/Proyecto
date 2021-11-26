@@ -82,6 +82,8 @@ namespace Proyecto.Controllers
             Sala id = EntrarSala.BuscaridSala(codigo);
             TempData["idSala"] = id.Id;
             TempData["Nick"] = nombre;
+            TempData["Codigo"] = codigo;
+
 
             if (TempData.ContainsKey("idSala"))
             {
@@ -91,6 +93,11 @@ namespace Proyecto.Controllers
             {
                 ViewBag.Nick = TempData["Nick"].ToString();
             }
+            if (TempData.ContainsKey("Codigo"))
+            {
+                ViewBag.Codigo = TempData["Codigo"].ToString();
+            }
+
 
 
 

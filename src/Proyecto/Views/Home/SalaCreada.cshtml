@@ -10,7 +10,7 @@
 </head>
 <body>
     <div id="chat">
-        <div class="chat_header"><button id="fullscreen">a</button> CHAT</div>
+        <div class="chat_header"><button id="fullscreen">Fullscreen</button> CHAT - @ViewBag.Codigo</div>
         <div id="chat_s" onLoad="doSomething()"></div>
         <!--<script type="text/javascript">
             var submitted = false;
@@ -27,7 +27,7 @@
     </div>
     <script>
 
-        setInterval(function Buscar() {          
+        setInterval(function Buscar() {
             fetch('/api/Mensaje/GetMensajexSalas/' + @ViewBag.id)
                 .then(res => res.json())
 
@@ -38,15 +38,23 @@
                     div.innerHTML = "";
                     for (var i = 0; i < json_extraido.length; i++) {
                         var entry = json_extraido[i];
-                        var a, b;
-                        a = entry.Usuario;
+                        var a = "";
+                        var b = "";
+
+                        console.log(json_extraido[i]);
+                        console.log("usuario:  " + entry.Usuario)
+                            a = entry.Usuario;
+
+                        
                         b = "";
 
                         div.innerHTML +=
                             '<div class="chat' +
                             b +
-                            '"><div class="chat_name">' +
-                            a +
+                        '"><div class="chat_name">' +
+
+                        a +
+
                             '</div><div class="chat_message">' +
                             entry.Texto +
                             "</div></div>";
@@ -63,17 +71,17 @@
         //código a ejecutar cuando el DOM está listo para recibir acciones
         /*
         fetch('/api/Mensaje/GetMensajexSalas/135', {
-            
+
             //body: JSON.stringify({ idSala: 5 })
         })
-    
+
             .then(function (response) {
                 console.log("hola");
                 if (response.status !== 200) {
                     console.log('fetch returned not ok' + response.status);
                 }
                 console.log(response.text());
-                
+
             })
             response.json().then(function (data) {
             console.log('fetch returned ok');
