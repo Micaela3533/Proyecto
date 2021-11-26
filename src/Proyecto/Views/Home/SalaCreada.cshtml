@@ -189,6 +189,7 @@
 
 
 
+
         .video {
             position: fixed;
             top: 7%;
@@ -215,7 +216,146 @@
 
 
 
-        /*caja chat*/
+        /caja chat/
+        #chat {
+            height: 93%;
+            top: 7%;
+            right: 0%;
+            left: 82%;
+            border-left: 1px solid #242424;
+            max-width: calc(100vw - 40px);
+            font-family: "Montserrat", sans-serif;
+            position: fixed;
+            background: #171717;
+            color: white;
+        }
+
+        #chat.full {
+            height: 100%;
+            top: 0;
+            right: 0%;
+            left: 82%;
+            border-left: 1px solid #242424;
+            max-width: calc(100vw - 40px);
+            font-family: "Montserrat", sans-serif;
+            position: fixed;
+            background: #171717;
+            color: white;
+        }
+
+        .chat_header {
+            padding: 15px;
+            border-bottom: 1px solid #242424;
+            color: #ffffff;
+            margin-bottom: 8px;
+            font-size: 14px;
+            background: #171717;
+        }
+
+        .chat {
+            margin: 14px;
+            border: 1px solid #ff7f50;
+            padding: 8px;
+            width: 220px;
+            border-radius: 10px 10px 10px 0;
+            max-width: calc(100% - 48px);
+            font-size: 0.85em;
+            word-break: break-word;
+        }
+
+        /nombre lider/
+        .chat_name {
+            text-transform: uppercase;
+            font-size: 0.65em;
+            margin: 4px 0 2px;
+            font-weight: 900;
+        }
+
+        /mensaje/
+        .chat_other {
+            border-radius: 10px 10px 0 10px;
+            margin-left: calc(100% - 249px);
+            border-color: #65969c;
+            float: right;
+            background: #3d3d3d;
+        }
+
+        #chat form {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            width: calc(100% - 20px);
+        }
+
+        /input mensaje/
+        #chat input[type="text"] {
+            width: calc(100% - 44px);
+            box-sizing: border-box;
+            padding: 10px;
+            border-color: #242424;
+            font-family: "Montserrat", sans-serif;
+            background: #3d3d3d;
+            color: white;
+            border-radius: 10px 10px 10px 10px;
+        }
+
+        /boton enviar/
+        #chat input[type="button"] {
+            width: 50px;
+            position: absolute;
+            box-sizing: border-box;
+            padding: 10px;
+            margin-left: -1px;
+            border-color: #242424;
+            font-family: "Montserrat", sans-serif;
+            cursor: pointer;
+            background: #3d3d3d;
+            color: white;
+            border-radius: 10px 10px 10px 10px
+        }
+
+        #chat_s {
+            overflow-y: scroll;
+            max-height: 82%;
+        }
+
+        ::-webkit-scrollbar {
+            width: 13px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 0 4px #fff;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+      /*.video {
+            position: fixed;
+            top: 7%;
+            height: 92%;
+            width: 82%;
+            left: 0;
+            border-bottom: 1px solid #242424;
+        }
+
+            .video.full {
+                position: fixed;
+                top: 0;
+                height: 100%;
+                width: 82%;
+                left: 0;
+                border-bottom: 1px solid #242424;
+            }
+
+        .imgPart img {
+            width: 40px;
+            border-radius: 50%;
+            margin: 15px;
+        }
+
+
+
+        /*caja chat*
         #chat {
             height: 93%;
             top: 7%;
@@ -248,14 +388,14 @@
             font-size: 0.85em;
             word-break: break-word;
         }
-        /*nombre lider*/
+        /*nombre lider*
         .chat_name {
             text-transform: uppercase;
             font-size: 0.65em;
             margin: 4px 0 2px;
             font-weight: 900;
         }
-        /*mensaje*/
+        /*mensaje*
         .chat_other {
             border-radius: 10px 10px 0 10px;
             margin-left: calc(100% - 249px);
@@ -270,7 +410,7 @@
             left: 10px;
             width: calc(100% - 20px);
         }
-        /*input mensaje*/
+        /*input mensaje*
         #chat input[type="text"] {
             width: calc(100% - 44px);
             box-sizing: border-box;
@@ -281,7 +421,7 @@
             color: white;
             border-radius: 10px 10px 10px 10px;
         }
-        /*boton enviar*/
+        /*boton enviar*
         #chat input[type="button"] {
             width: 50px;
             position: absolute;
@@ -309,7 +449,7 @@
             border-radius: 10px;
             -webkit-box-shadow: inset 0 0 0 4px #fff;
             background: rgba(0, 0, 0, 0.2);
-        }
+        }*/
     </style>
 
     <script>
